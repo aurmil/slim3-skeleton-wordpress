@@ -11,10 +11,11 @@ class FrontController extends Controller
     public function home(RequestInterface $request, ResponseInterface $response, array $args)
     {
         $posts = [];
+        $page = (int) ($args['page'] ?? 1);
+        $queryArgs = ['paged' => $page];
+        $query = false;
 
         if (function_exists('get_posts')) {
-            $page = (int) ($args['page'] ?? 1);
-            $queryArgs = ['paged' => $page];
             $query = new \WP_Query($queryArgs);
             $wpPosts = $query->get_posts();
             $posts = (new PostConverter($this->router))->processPosts($wpPosts);
@@ -23,8 +24,8 @@ class FrontController extends Controller
         return $this->render($response, 'front/home.twig', [
             'posts' => $posts,
             'pagin_current_page' => $page,
-            'pagin_posts_count' => $query->found_posts,
-            'pagin_max_page' => $query->max_num_pages,
+            'pagin_posts_count' => $query ? $query->found_posts : 0,
+            'pagin_max_page' => $query ? $query->max_num_pages : 0,
             'pagin_route_name' => $request->getAttribute('route')->getName(),
             'pagin_route_args' => $args,
             // remove this var when is_current_path('home') is fixed,

@@ -72,10 +72,10 @@
                         'container': false
                     })|raw }}
 
-                    <form class="form-inline my-2 my-lg-0" action="{{ path_for('wp-search') }}" method="get">
+                    {#<form class="form-inline my-2 my-lg-0" action="{{ path_for('wp-search') }}" method="get">
                         <input type="search" class="form-control mr-sm-2" name="s" placeholder="Search" aria-label="Search" {% if search_query is defined and search_query %}value="{{ search_query|e('html_attr') }}"{% endif %}>
                         <button type="submit" class="btn btn-outline-primary my-2 my-sm-0">Search</button>
-                    </form>
+                    </form>#}
                 </div>
             </nav>
 

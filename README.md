@@ -114,7 +114,7 @@ This can only work if WordPress and Slim app routing patterns are the same, whic
 
 In `templates/layouts/main.twig`, set the name of the menu you want to display in `wp_nav_menu` call.
 
-Layout also contains a search form next to the nav menu.
+Layout also contains a search form next to the nav menu. You will have to uncomment this form after successfully installing WordPress in app `public` dir.
 
 ## To do
 
