@@ -5,6 +5,10 @@ img, video {
     height: auto;
 }
 
+nav + * {
+    margin-top: 1em;
+}
+
 body,
 .posts > div:not(:last-child),
 #wp-post .wp-post-image {
