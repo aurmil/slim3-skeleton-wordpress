@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+body,
+.posts > div:not(:last-child),
+#wp-post .wp-post-image {
+    margin-bottom: 2em;
+}
+
+/* for small screens */
+.navbar form.form-inline input[type="search"] {
+    width: auto;
+    margin-right: .5rem !important;
+}

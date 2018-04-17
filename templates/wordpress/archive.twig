@@ -1,0 +1,41 @@
+{% extends "layouts/main.twig" %}
+
+{% block metaTitle %}{{ meta_title }}{% endblock %}
+
+{% block bodyId %}archive{% endblock %}
+
+{% block content %}
+    <h1>{{ list_title }}</h1>
+
+    {% if posts|length > 0 %}
+        <div class="posts">
+            {% for post in posts %}
+                <div>
+                    {% if post.date %}
+                        <p>{{ post.date }}</p>
+                    {% endif %}
+
+                    <h2><a href="{{ post.permalink|e('html_attr') }}">{{ post.title }}</a></h2>
+
+                    {% set thumbnail = get_the_post_thumbnail(post.id, 'medium') %}
+
+                    {% if thumbnail %}
+                        <a href="{{ post.permalink|e('html_attr') }}">{{ thumbnail|raw }}</a>
+                    {% endif %}
+
+    {#                <div>{{ replace_wp_links(post.content)|raw }}</div>#}
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+
+    {% include 'wordpress/partials/pagination.twig' with {
+        'current_page': pagin_current_page,
+        'posts_count': pagin_posts_count,
+        'max_page': pagin_max_page,
+        'route_name': pagin_route_name,
+        'route_args': pagin_route_args
+    } only %}
+{% endblock %}

@@ -1,0 +1,10 @@
+language_code: 'en'
+
+metas:
+    # title is read from WordPress
+#    title: 'Slim 3 with WordPress'
+    title_separator: ' - '
+    description: ""
+
+# false or Google Analytics ID 'UA-XXXXX-Y'
+google_analytics_id: false

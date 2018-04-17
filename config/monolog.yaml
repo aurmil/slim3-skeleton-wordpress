@@ -1,0 +1,21 @@
+# https://github.com/Seldaek/monolog/blob/master/doc/02-handlers-formatters-processors.md
+
+logger_name: 'Slim3WordPress'
+
+StreamHandler:
+    enable: true
+    level: DEBUG
+
+NativeMailerHandler:
+    enable: false
+    level: ERROR
+    to: ''
+    subject: 'Slim 3 with WordPress Error'
+    from: { 'no-reply@localhost.com': 'Slim 3 with WordPress' }
+
+SwiftMailerHandler:
+    enable: false
+    level: ERROR
+    to: ''
+    subject: 'Slim 3 with WordPress Error'
+    from: { 'no-reply@localhost.com': 'Slim 3 with WordPress' }

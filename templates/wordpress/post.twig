@@ -1,0 +1,30 @@
+{% extends "layouts/main.twig" %}
+
+{% block metaTitle %}{{ post.title }}{% endblock %}
+
+{% block bodyId %}wp-post{% endblock %}
+
+{% block content %}
+    {{ get_the_post_thumbnail(post.id, 'full')|raw }}
+
+    <p>{{ post.date }} by <a href="{{ path_for('wp-author', {'slug': post.author.slug})|e('html_attr') }}">{{ post.author.name }}</a></p>
+
+    <h1>{{ post.title }}</h1>
+
+    {{ replace_wp_links(post.content)|raw }}
+
+    <div>
+        {% set categories = get_the_category_list(', ', '', post.id) %}
+        {% set tags = get_the_tag_list('', ', ', '', post.id) %}
+
+        {% if categories %}
+        Categories: {{ categories|raw }}
+
+            {% if tags %}<br>{% endif %}
+        {% endif %}
+
+        {% if tags %}
+        Tags: {{ tags|raw }}
+        {% endif %}
+    </div>
+{% endblock %}

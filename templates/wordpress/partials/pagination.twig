@@ -1,0 +1,26 @@
+{% if max_page > 1 %}
+    <nav aria-label="Posts list pagination">
+        <ul class="pagination justify-content-center">
+            <li class="page-item {% if current_page == 1 %}disabled{% endif %}">
+                {% set route_args = route_args|merge({'page': current_page - 1}) %}
+                <a class="page-link" href="{{ path_for(route_name, route_args) }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+
+            {% for i in 1..max_page %}
+                {% set route_args = route_args|merge({'page': i}) %}
+                <li class="page-item {% if current_page == i %}active{% endif %}"><a class="page-link" href="{{ path_for(route_name, route_args) }}">{{ i }}</a></li>
+                {% endfor %}
+
+            <li class="page-item {% if current_page == max_page %}disabled{% endif %}">
+                {% set route_args = route_args|merge({'page': current_page + 1}) %}
+                <a class="page-link" href="{{ path_for(route_name, route_args) }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+{% endif %}
