@@ -162,3 +162,18 @@ $container['csrf'] = function ($container) {
 
     return $csrf;
 };
+
+// Cache
+
+$container['cache'] = function ($container) {
+    if ($container->settings['app']['use_cache']) {
+        $store = new \Illuminate\Cache\FileStore(
+            new \Illuminate\Filesystem\Filesystem,
+            VAR_PATH . '/cache/app'
+        );
+    } else {
+        $store = new \Illuminate\Cache\ArrayStore;
+    }
+
+    return new \Illuminate\Cache\Repository($store);
+};

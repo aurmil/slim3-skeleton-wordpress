@@ -1,1 +1,5 @@
 enable_csrf_token_persistence: false
+
+restricted_access_https_only: false
+restricted_access_users:
+    admin: admin

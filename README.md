@@ -8,6 +8,8 @@ WordPress handles content management while Slim is used for front-office renderi
 
 * My own [Slim 3 app skeleton](https://github.com/aurmil/slim3-skeleton)
 * WordPress support
+* [Illuminate/Cache v5.5](https://github.com/illuminate/cache/tree/5.5) and [Illuminate/Filesystem v5.5](https://github.com/illuminate/filesystem/tree/5.5)
+* [Tuupola PSR-7 Basic Auth Middleware v2](https://github.com/tuupola/slim-basic-auth/tree/2.x)
 
 ## Installation and usage
 
@@ -49,6 +51,12 @@ I read all routes formats from WordPress to minimize errors, avoid future compat
 WordPress contents routing in Slim app tries to stick as much as possible to the original WordPress routes. I also consider the optional use of a trailing slash in WordPress contents routes. It depends if permalink structure ends or not with a slash in WordPress permalinks settings.
 
 You can add your own routes for classic Slim pages/contents but take care that they do not match a WordPress-content route.
+
+#### Cache
+
+If config entry `app.use_cache` is set to `true`, WordPress routes are stored in cache with a duration that can be confgured in `wordpress.yaml` configuration file (default: 1 day).
+
+This app cache can be flushed through the route `/clear-cache` which is protected with a basic HTTP auth. Allowed users are defined in `security.yaml` configuration file.
 
 #### Posts
 

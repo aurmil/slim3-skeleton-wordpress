@@ -33,4 +33,11 @@ class FrontController extends Controller
             'is_home' => true,
         ]);
     }
+
+    public function clearCache(RequestInterface $request, ResponseInterface $response)
+    {
+        $this->cache->getStore()->flush();
+
+        return $response->write('Cache cleared.');
+    }
 }
