@@ -28,8 +28,7 @@
 
             {% set title = title ~ blogTitle %}
 
-            {# replace with is_current_path('home') when fixed, see https://github.com/slimphp/Twig-View/issues/69 #}
-            {% if is_home is defined and is_home is same as(true) %}
+            {% if is_current_path('home') %}
                 {% set blogDesc = get_bloginfo('description') %}
 
                 {% if blogDesc and config.metas.title_separator is defined and config.metas.title_separator %}

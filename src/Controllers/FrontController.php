@@ -28,9 +28,6 @@ class FrontController extends Controller
             'pagin_max_page' => $query ? $query->max_num_pages : 0,
             'pagin_route_name' => $request->getAttribute('route')->getName(),
             'pagin_route_args' => $args,
-            // remove this var when is_current_path('home') is fixed,
-            // see https://github.com/slimphp/Twig-View/issues/69
-            'is_home' => true,
         ]);
     }
 

@@ -22,7 +22,7 @@
         "slim/csrf": "^0.8.1",
         "slim/flash": "^0.2.0",
         "slim/slim": "^3.5",
-        "slim/twig-view": "^2.2",
+        "slim/twig-view": "^2.4",
         "swiftmailer/swiftmailer": "^6.0",
         "symfony/yaml": "^3.1",
         "tuupola/slim-basic-auth": "^2.3"
