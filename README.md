@@ -127,6 +127,7 @@ Layout also contains a search form next to the nav menu. You will have to uncomm
 ## To do
 
 * Polylang support + language selector
+* Clear cache when post or page is created / edited / removed
 
 ## License
 
