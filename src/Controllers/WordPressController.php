@@ -150,8 +150,6 @@ class WordPressController extends Controller
             'year' => $args['year'],
         ];
 
-        $title = sprintf( __( 'Year: %s' ), get_the_date( _x( 'Y', 'yearly archives date format' ) ) );
-
         if (isset($args['month'])) {
             $queryArgs['monthnum'] = $args['month'];
         }
